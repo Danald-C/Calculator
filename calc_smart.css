@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* CSS Document */
+
+div#random-entry{
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid #ccc;
+	}
+div#random-entry a{
+	display: inline-block;
+	background-color: #fff;
+	border: 1px solid #668cff;
+	}
+div#random-entry div#collection-tab a.selected{
+	background-color: #b3c6ff;
+	color: #fff;
+	transition: .5s;
+	}
+div#random-entry ul#collection-set{
+	padding: 10px;
+	//margin: 10px;
+	border: 1px solid #668cff;
+	}
+div#random-entry ul#collection-set li.collection{
+	display: none;
+	}
+div#random-entry ul#collection-set li.collection div.coll-name{
+	background-color: rgba(179, 198, 255, .2);
+	margin-bottom: 20px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	}
+div#random-entry ul#collection-set div{
+	margin: 10px 0 10px 0;
+	}
+div#random-entry ul#collection-set ul.coll-entry ul.coll-apply-action div{
+	display: inline-block;
+	padding: 5px;
+	}
+div#random-entry ul#collection-set ul.coll-entry{
+	//border: 1px solid #ccc;
+	}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body{
+	//float: left;
+	//width: 320px;
+	//width: 400px;
+	margin: 0 5px 10px 0;
+	padding: 5px;
+	border: 1px solid #ccc;
+	}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body.active{
+	background-color: rgba(179, 198, 255, .2);
+	}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body:nth-child(2n+1){
+	//margin-right: 0;
+	//clear: both;
+	}
+div#random-entry ul#collection-set ul.coll-entry li div.coll-apply-action div.coll-apply-action-head span,
+div#random-entry ul#collection-set ul.coll-entry li div.coll-apply-action ul.coll-apply-action-body li span,
+div#random-entry ul#collection-set ul.coll-entry span.figure{
+	display: inline-block;
+	//height: 50px;
+	padding: 10px;
+	border: 1px solid #eee;
+	}
+div#random-entry ul#collection-set ul.coll-entry span.figure{
+	background-color: #fff;
+	}
+div#random-entry ul#collection-set ul.coll-entry div.coll-apply-action div.coll-apply-action-head span:nth-child(1),
+div#random-entry ul#collection-set ul.coll-entry div.coll-apply-action div.coll-apply-action-head span:nth-child(2){
+	line-height: 50px;
+	}
+div#random-entry ul#collection-set ul.coll-entry li div.coll-apply-action ul.coll-apply-action-body li span{
+	//padding: 10px;
+	line-height: 20px;
+	}
+div#random-entry ul#collection-set li.collection.selected ul.coll-entry li.coll-entry-body div.coll-apply-action div.coll-apply-action-head span.operand{
+	background-color: #ccffdd;
+	border: 1px solid #00e64d;
+	}
