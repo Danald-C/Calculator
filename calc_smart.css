@@ -17,7 +17,6 @@
   }
   
   div#random-entry{
-	height: 78vh;
 	padding: 10px;
 	margin-bottom: 10px;
 	border: 1px solid #ccc;
@@ -43,9 +42,11 @@ div#random-entry div#collection-tab a.selected{
 	/* transition: .5s; */
 	}
 div#random-entry ul#collection-set{
+	height: 78vh;
 	padding: 10px;
 	margin: 0;
 	border: 1px solid #668cff;
+	overflow: scroll;
 	}
 div#random-entry ul#collection-set, div#random-entry ul#collection-set li.collection{
 	display: none;
