@@ -1,6 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
 
+@charset "utf-8";
+/* CSS Document */
+
 
 *, *:after, *:before {
 	box-sizing: border-box;
@@ -31,6 +34,7 @@ div#random-entry a:hover, div#random-entry div#collection-tab a.selected{
 	transition: all 0.5s ease-out; */
 }
 div#random-entry div#collection-tab{
+	font-size: 1.2em;
 	margin-top: 20px;
 	}
 div#random-entry div#collection-tab a.selected{
@@ -54,24 +58,14 @@ div#random-entry ul#collection-set li.collection div.coll-body{
 	border: 1px solid #ccc;
 	/* background-color: red; */
 }
-div#random-entry ul#collection-set ul.coll-entry div.coll-action-type{
-	background-color: #fff;
-	margin: 10px 0;
-	border: 1px solid #ccc;
+div#random-entry ul#collection-set li.collection div.coll-body input,
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-entry-name input{
+	margin-left: 20px;
 }
-div#random-entry ul#collection-set ul.coll-entry div.coll-action-type label{
-	display: inline-block;
-	padding: 10px 15px;
-	cursor: pointer;
-}
-div#random-entry ul#collection-set ul.coll-entry div.coll-action-type label.selected{
-	background-color: #ffe8e8;
-	transition: all 0.5s ease-out;
-}
-div#random-entry ul#collection-set ul.coll-entry div.coll-apply-action div{
+/* div#random-entry ul#collection-set ul.coll-entry div.coll-apply-action div{
 	display: inline-block;
 	padding: 5px;
-	}
+	} */
 div#random-entry ul#collection-set ul.coll-entry{
 	display: flex;
     flex-direction: row;
@@ -92,49 +86,99 @@ div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body.active{
 div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-entry-name{
 	background-color: #fff;
 }
-div#random-entry ul#collection-set ul.coll-entry li div.coll-apply-action div.coll-apply-action-head{
+
+/* div#random-entry ul#collection-set ul.coll-entry li div.coll-apply-action div.coll-apply-action-head{
 	background-color: #fff;
-	/* margin: 0; */
 	padding: 0;
 	border: 1px solid #ccc;
-	}
-div#random-entry ul#collection-set ul.coll-entry li div.coll-apply-action div.coll-apply-action-head span,
-div#random-entry ul#collection-set ul.coll-entry li div.coll-apply-action ul.coll-apply-action-body li span/* ,
-div#random-entry ul#collection-set ul.coll-entry span.figure */{
+	} */
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper{
+	background-color: #fff;
+	margin: 10px 0;
+	padding: 5px;
+	border: 1px solid #ccc;
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-type{
+	background-color: #f8f3f3;
+	font-size: 1.5em;
+	margin: 10px 0;
+	padding: 5px;
+	border: 1px solid #ccc;
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-type label{
+	display: inline-block;
+	padding: 10px 15px;
+	cursor: pointer;
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-type label.selected{
+	background-color: #f5dcdc;
+	transition: all 0.5s ease-out;
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-details{}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-details span{
+	display: block;
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-details textarea{
+	width: 100%;
+	resize: none;
+	/* margin-bottom: 10px; */
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body ul.coll-entry-list-wrapper{
+	padding: 0;
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body ul.coll-entry-list-wrapper li{
+	background-color: #fff;
+	margin-bottom: 5px;
+	padding-left: 10px;
+	list-style: none;
+	transition: all 0.5s ease-out;
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body ul.coll-entry-list-wrapper li:hover,
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body ul.coll-entry-list-wrapper li.selected{
+	background-color: #baeefd;
+	cursor: pointer;
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body ul.coll-entry-list-wrapper li:hover > span{
+	border: 1px solid #fff;
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body ul.coll-entry-list-wrapper li span{
+	line-height: 20px;
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body ul.coll-entry-list-wrapper li span.s-n{
+	background-color: #ffe8e8;
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-head{}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-head span,
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body ul.coll-entry-list-wrapper li span{
 	display: inline-block;
 	padding: 10px;
 	border: 1px solid #eee;
-	}
-div#random-entry ul#collection-set ul.coll-entry span.figure{
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-head span.figure{
 	background-color: #fff;
-	}
-div#random-entry ul#collection-set ul.coll-entry div.coll-apply-action div.coll-apply-action-head span.entry-total{
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-head span.entry-total{
 	font-size: 1.2em;
 	font-weight: bold;
 }
-div#random-entry ul#collection-set ul.coll-entry li div.coll-apply-action ul.coll-apply-action-body{
-	/* background-color: red; */
-	/* margin: 0; */
-	padding: 0;
-}
-div#random-entry ul#collection-set ul.coll-entry li div.coll-apply-action ul.coll-apply-action-body li{
-	list-style: none;
-}
-div#random-entry ul#collection-set ul.coll-entry li div.coll-apply-action ul.coll-apply-action-body li span{
-	line-height: 20px;
-}
-div#random-entry ul#collection-set ul.coll-entry li div.coll-apply-action ul.coll-apply-action-body li span.s-n{
-	background-color: #ffe8e8;
-}
-div#random-entry ul#collection-set li.collection.selected ul.coll-entry li.coll-entry-body div.coll-apply-action div.coll-apply-action-head span.operand{
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-head span.operand{
 	background-color: #ccffdd;
 	border: 1px solid #00e64d;
 }
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-head span.operand input{
+	font-size: 1em;
+}
 
-.txt-inputs{
-	padding: 5px 0 5px 10px;
-	border: none;
+
+.all-txtInputs{
+	font-size: 1em;
+	padding: 5px 10px;
 	outline: none;
+	border: 1px solid #ccc;
+}
+.txt-inputs{
+	height: 40px;
+	/* border: none; */
 }
 
 .ordinary, .add, .remove{
@@ -181,3 +225,4 @@ footer{
 footer span{
 	color: yellow;
 }
+
