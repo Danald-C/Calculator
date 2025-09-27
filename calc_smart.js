@@ -95,9 +95,11 @@ $(function () {
 				if(n[0] == 0 && bHeight > 0){
 					tbStructure += "<tr>";
 					// tbStructure += "<li>";
-					tbStructure += "<th>";
-					tbStructure += (n[1] >= 0) ? (n[1]+1) : (n[1] == -1) ? "No." : "";
-					tbStructure += "</th>";
+				}
+				if(n[0] == 0){
+				tbStructure += "<th>";
+				tbStructure += (n[1] >= 0) ? (n[1]+1) : (n[1] == -1) ? "No." : "";
+				tbStructure += "</th>";
 				}
 				if(n[1] < 0){
 					if(n[1] == -2){
@@ -126,8 +128,8 @@ $(function () {
 					}else{
 				let entry = entries[n[0]];
 						if(entry.entryBody.length == 0 || n[1] > entry.entryBody.length-1){
-							tbStructure += "<td colspan=8></td>";
 							if(bHeight > 0){
+							tbStructure += "<td colspan=8></td>";
 							}
 						}else{
 							let itemData = entry.entryBody[n[1]];
