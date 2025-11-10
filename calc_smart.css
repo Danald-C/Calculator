@@ -116,8 +116,19 @@ div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-act
 	transition: all 0.5s ease-out;
 }
 div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-details{}
-div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-details span{
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-details span.details{
 	display: block;
+	margin: 5px 0;
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-details span.extra-details{
+	display: block;
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-details span.extra-controls{
+	padding: 5px;
+	border: 1px solid #ccc;
+}
+div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-details span.extra-controls label:hover{
+	cursor: pointer;
 }
 div#random-entry ul#collection-set ul.coll-entry li.coll-entry-body div.coll-action-type-wrapper div.coll-action-details textarea{
 	width: 100%;
