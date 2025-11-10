@@ -4,7 +4,6 @@ $(function () {
 	// let entry_mode_data = [[0, [1, 0, []]], [["",[{"entryHead":{"name":"","topOperator":"1"},"entryBody":[[[0,13],["Eld. David Danquah","Beatrice Abankwa's District Offering.","2025-09-11"],"0"],[[13,3],["Eld. Francis Okyere","Richard Okoh's District Offering.","2025-09-26"],"1"],[[10,2.4],["","","2025-09-26"],"1"],[[7.6,1324421],["","","2025-09-26"],"1"]]}]]]], newEntry = {entryHead: {name: "", topOperator: "0"}, entryBody: []}, newCollection = ["", [createNewDataSet(newEntry)]];
 	// $("div#random-entry ul#collection-set").css("display", "block");
 	//   random_entry(entry_mode_data, newEntry);
-	//   console.log(checkFloat(16.10))
 	
 	viewModeBtn(entry_mode_data);
 	$("div#random-entry a#view-table").css("display", "none");
@@ -18,13 +17,18 @@ $(function () {
 		entry_mode_data[1] = [createNewDataSet(newCollection), ...entry_mode_data[1]];
 	  }
   
-	  var structure = "";
+	  /* var structure = "";
 	  for (let i = 0; i < entry_mode_data[1].length; i++) {
 		structure += "<a id='" + (i + 1) + "' href='#' class='ordinary'>";
-		structure += entry_mode_data[1][i][0] == "" ? "This Collection" : entry_mode_data[1][i][0];
+		// structure += entry_mode_data[1][i][0] == "" ? "This Collection" : entry_mode_data[1][i][0];
+	  console.log(entry_mode_data[1][i])
+		entry_mode_data = collectionName(entry_mode_data, i)
+	  console.log(entry_mode_data[1][i])
+		structure += entry_mode_data[1][i][0];
 		structure += "</a>";
 	  }
-	  $("div#random-entry div#collection-tab").html(structure);
+	  $("div#random-entry div#collection-tab").html(structure); */
+	  collectionNamesReload(entry_mode_data);
   
 	  $("div#random-entry div#collection-tab a").removeClass("selected");
 	  $("div#random-entry div#collection-tab a:nth-child(" + entry_mode_data[0][1][0] + ")").addClass("selected");
@@ -183,6 +187,12 @@ $(function () {
 	});
   });
   
+  
+  
+  
+  
+  
+  
   function random_entry(entry_mode_data, newEntry, extra=[""]) {
 	var structure = "";
 	for (var i = 0; i < entry_mode_data[1].length; i++) {
@@ -275,17 +285,17 @@ $(function () {
 									structure += (selK >= 0) ? thisEntry.entryBody[selK][1][2] : date.getFullYear()+"-"+(date.getMonth() + 1).toString().padStart(2, '0')+"-"+date.getDate().toString().padStart(2, '0');
 									structure += "' />";
 								structure += "</span>";
-								structure += "<span class='details extra-controls'>";
+								/* structure += "<span class='details extra-controls'>";
 									structure += "<label id='set-target'>";
 										structure += "<input type='checkbox' /> Set Target";
 									structure += "</label>";
-									structure += "<span style='display: none;'>";
+									structure += "<span style='display: none;+'>";
 										structure += "<input type='text' class='all-txtInputs' style='width: 80px;' placeholder='0' />";
 										structure += "<label id='mutable'>";
 											structure += "<input type='checkbox' checked /> Mutable / Successive";
 										structure += "</label>";
 									structure += "</span>";
-								structure += "</span>";
+								structure += "</span>"; */
 							structure += "</div>";
 							structure += "<div class='coll-action-head'>";
 								structure += "<span class='entry-total figure'></span>";
@@ -409,14 +419,15 @@ $(function () {
   
 		entry_mode_data[1].splice(i, 1);
   
-		var structure = "";
+		/* var structure = "";
 		for (var i = 0; i < entry_mode_data[1].length; i++) {
-		  structure += "<a id='" + (i + 1) + "' href='#'>";
+		  structure += "<a id='" + (i + 1) + "' href='#' class='ordinary'>";
 		  entry_mode_data[1][i] = collectionName(entry_mode_data[1][i])
 		  structure += entry_mode_data[1][i][0];
 		  structure += "</a>";
 		}
-		$("div#random-entry div#collection-tab").html(structure);
+		$("div#random-entry div#collection-tab").html(structure); */
+		collectionNamesReload(entry_mode_data);
   
 		entry_mode_data[0][1][0] = 1; // Reset to first collection
 		$("div#random-entry div#collection-tab a").removeClass("selected");
@@ -513,6 +524,15 @@ $(function () {
 	  random_entry(entry_mode_data, newEntry, [$(elem_sel_init + elem_sel_list + " div.coll-action-type-wrapper div.coll-action-head span.operand input").val()]);
 	})
 	
+	/* $(elem_sel_init + elem_sel_list + " div.coll-action-type-wrapper div.coll-action-details span.extra-controls label#set-target input").change(function () {
+		if($(this).prop("checked")){
+			$(this).closest('span.extra-controls').find('span').css('display', 'inline-block')
+		}else{
+			$(this).closest('span.extra-controls').find('span').css('display', 'none');
+		}
+		// alert("Okay, got it..");
+	}); */
+	
 	// **************************
 	// Perform computation
 	$(elem_sel_init + elem_sel_list + " div.coll-action-type-wrapper div.coll-action-head span.perform a").click(function () {
@@ -572,7 +592,7 @@ $(function () {
 			});
 		}
 	});
-	$(elem_sel_init + elem_sel_list + " div.coll-action-type-wrapper div.coll-action-details span input[type=date").change(function(){
+	$(elem_sel_init + elem_sel_list + " div.coll-action-type-wrapper div.coll-action-details span.extra-details input[type=date").change(function(){
 		let [i, j] = getIndexes($(this)), detailsElem = $(this).closest('div.coll-action-details');
 		if(entry_mode_data[0][1][2].length > 0){
 			entry_mode_data[0][1][2].map(item => {
@@ -638,20 +658,11 @@ $(function () {
 	//   actionElem.find("div.coll-action-head span.operator").text(operator);
 	//   actionElem.find('div.coll-action-head span.entry-total').text(filter_currency(value[0]));
 	}
-	});
+});
   
   
   
 	// FUNCTIONS
-  
-	function collectionName(sel_collection, set=false, name="This Collection"){
-	  if(set || sel_collection[0] == "") {
-		entry_mode_data[1][i][0] = name;
-		sel_collection = entry_mode_data[1][i];
-	  }
-  
-	  return sel_collection;
-	}
   
 	function getIndexes(elem){
 	  var entryBody = elem.closest('li.coll-entry-body'), sel_coll = elem.closest("li.collection"), i = sel_coll.attr("id"), j = sel_coll.find("ul.coll-entry li.coll-entry-body.active").attr("id")
@@ -779,6 +790,32 @@ $(function () {
 	}
   }
 
+  
+	// function collectionName(sel_collection, set=false, name="This Collection"){
+	function collectionName(entry_mode_data, i, set=false, name="This Collection"){
+	  // if(set || sel_collection[0] == "") {
+	  if(set || entry_mode_data[1][i][0] == "") {
+		entry_mode_data[1][i][0] = name;
+		// sel_collection = entry_mode_data[1][i];
+	  }
+  
+	  // return entry_mode_data;
+	}
+	
+	function collectionNamesReload(entry_mode_data){
+	  var structure = "";
+	  for (let i = 0; i < entry_mode_data[1].length; i++) {
+		structure += "<a id='" + (i + 1) + "' href='#' class='ordinary'>";
+		// structure += entry_mode_data[1][i][0] == "" ? "This Collection" : entry_mode_data[1][i][0];
+		collectionName(entry_mode_data, i);
+		structure += entry_mode_data[1][i][0];
+		structure += "</a>";
+	  }
+	  $("div#random-entry div#collection-tab").html(structure);
+	  
+	  // return entry_mode_data;
+	}
+	
 	function processEntry(computation){	
 		// var operatorType = computation[1] == 0 || computation[1] == 1;
 		var operatorType = computation[2] == 0 || computation[2] == 1;
