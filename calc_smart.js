@@ -675,7 +675,7 @@ $(function () {
 	}
   
 	function setOperandBox(value) {
-	  var operator = "+", num_html = "<input type='text' class='txt-inputs' style='width: 100px; padding: 10px;' placeholder='0' />", digit_html = "<input type='number' class='txt-inputs' min='2' value='2' style='width: 80px; font-size: 17px; padding: 10px;' />", sel_html = num_html;
+	  var operator = "+", num_html = "<input type='text' inputmode='numeric' pattern='[0-9]*' class='txt-inputs' style='width: 100px; padding: 10px;' placeholder='0' />", digit_html = "<input type='number' inputmode='numeric' pattern='[0-9]*' class='txt-inputs' min='2' value='2' style='width: 80px; font-size: 17px; padding: 10px;' />", sel_html = num_html;
   
 	  if (value == 1) {
 		operator = "-";
